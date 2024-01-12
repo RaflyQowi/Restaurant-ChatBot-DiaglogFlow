@@ -11,7 +11,25 @@ connection = mysql.connector.connect(
     host = '127.0.0.1',
     database = 'indonesian_restaurant'
 )
-        
+
+def get_next_avaliable_order_id():
+    cursor = connection.cursor()
+
+    # Execute the query
+    query = "SELECT max(order_id) FROM orders"
+    cursor.execute(query)
+
+    # Fetch the results
+    result = cursor.fetchone()[0]
+
+    # Close the cursor when done
+    cursor.close()
+
+    if result is None:
+        return 1
+    else:
+        return result + 1
+  
 
 def get_order_status(order_id: int):
     # Create a cursor object to execute SQL queries
@@ -22,16 +40,18 @@ def get_order_status(order_id: int):
     cursor.execute(query)
 
     # Fetch the results
-    result = cursor.fetchone()
+    result = cursor.fetchone()[0]
 
     # Close the cursor when done
     cursor.close()
 
     if result is not None:
-        return result[0]
+        return result
     else:
         return None
     
 
 if __name__ == "__main__":
-    print(get_order_status(41))
+    # print(get_order_status(41))
+    print(get_next_avaliable_order_id())
+    pass
