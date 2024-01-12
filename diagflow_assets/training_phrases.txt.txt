@@ -1,0 +1,163 @@
+Default Welcome Intent
+=======================
+Text Response: 
+- 👋 Salutations! Delighted to welcome you to our service platform. Whether you're navigating a "New Order" process or seeking information on "Track Order," our chat bot is here to facilitate a smooth experience. 🌐🤖
+
+- 🌟 Welcome to our professional assistance hub! Whether you're exploring a "New Order" process or seeking clarity with "Track Order," our chat bot is poised to provide you with the support you need. 📲💻
+
+- 🌟 Welcome to our professional support platform! Whether you're here to place a "New Order" or seeking to "Track Order" details, our chat bot is here to assist you efficiently. 👋💼
+
+- 🌟 Hello there! 👋 Excited to have you here! Whether you're ready to dive into a "New Order" or eager to "Track Order" progress, our chat bot is at your service! Let's get started! 🛒🚚
+
+
+Default Fallback Intent
+=======================
+Text Response: 
+- It appears you're exploring beyond 'New Order' or 'Tracking Order.' For order tracking, kindly provide your order number. If you're interested in placing a 'New Order,' our menu features exquisite options:
+
+- Nasi Goreng 🍚
+- Satay (Sate) 🍢
+- Rendang 🥩
+- Nasi Padang 🍛
+- Gado-gado 🥗
+- Soto 🍲
+- Martabak 🥞
+- Ayam Goreng 🍗
+- Bakso 🍲
+- Pisang Goreng 🍌
+
+Feel free to specify the item and quantity for your order, such as 'Two portions of Nasi Goreng' or 'One serving of Satay.' I'm here to assist in crafting your perfect order!"
+
+
+Intent = new_order
+=======================
+Training phrases:
+- new order
+- placing a new order
+- order now
+- make a purchase
+- begin a new order
+
+Text Response: 
+- Sure thing! Starting a new order for you. Choose from our menu: Nasi Goreng, Satay (Sate), Rendang, Nasi Padang, Gado-gado, Soto, Martabak, Ayam Goreng, Bakso, Pisang Goreng. Feel free to specify items and quantities, like 'Two portions of Nasi Goreng' or 'One serving of Satay.' I'm here to assist in crafting your perfect order!
+-Absolutely! Initiating a new order. Select from our menu: Nasi Goreng, Satay (Sate), Rendang, Nasi Padang, Gado-gado, Soto, Martabak, Ayam Goreng, Bakso, Pisang Goreng. Specify items and quantities, such as 'Two portions of Nasi Goreng' or 'One serving of Satay.' I'm here to help you create a customized order!
+
+
+
+Intent = order_add - context: ongoing-order
+=======================
+Training phrases:
+- Ordering one Soto and two servings of Rendang.
+- Give me one Martabak and two portions of Bakso, please.
+- I'll take one Nasi Goreng and one Satay.
+- I'd like 2 Gado-gado and 10 portions of Satay, please.
+- Give me 1 Martabak, 2 servings of Bakso, 1 Nasi Padang, and 3 Gado-gado, please.
+- Can I get 5 servings of Rendang, 2 Ayam Goreng, and 4 portions of Pisang Goreng, please?
+- I'll take 3 orders of Bakso, 6 Pisang Goreng, 2 Martabak, and 4 servings of Soto.
+- For my order, 1 Ayam Goreng, 3 servings of Pisang Goreng, 2 Rendang, and 1 Soto.
+- Also, add 1 extra Ayam Goreng.
+- Please also add 1 Nasi Goreng.
+- Also, add 3 Satay.
+- please add 3 more Satay to that order!
+- please also add 4 servings of Bakso.
+- Ordering 4 Pisang Goreng, 9 servings of Soto, and 3 Ayam Goreng. Please also add 2 extra servings of Gado-gado and 3 Martabak.
+- For my order of 1 Nasi Goreng, 8 Martabak, and 5 Satay, also add 1 more Ayam Goreng. And, let's make it 3 Martabak.
+- For my order of one Ayam Goreng, 3 servings of Pisang Goreng, and 2 Rendang, please also add 4 servings of Bakso.
+- I'd like 2 Gado-gado, ten portions of Satay, and four Nasi Padang
+- Also, add 3 Satay to balance the flavors.
+- let's make it 3 Martabak.
+- hey add 3 Nasi Goreng
+- i want to order 3 Ayam Goreng.
+- order for 3 soto
+
+Text Response:
+- Is there anything else you'd like to add to your order?
+- Would you like to include anything else in your order?
+
+
+Intent = order_complete - context: ongoing-order
+=======================
+Training phrases:
+- No, thank you.
+- No, I'm good for now.
+- Nope, that's all.
+- Nah, nothing else.
+- Negative, I'm set.
+- No more additions for me.
+- Not at the moment, thanks.
+- No further changes, please.
+- No additional items, thanks.
+- No, that completes my order.
+- That's all I needed
+- Done ordering it
+- Place an order
+- Done
+- That's it
+- no
+- nope
+
+Text Response:
+- Awesome. Your order is placed. Here is your order id #
+
+
+
+Intent = order_remove - context: ongoing-order
+=======================
+Training phrases:
+- Please remove Nasi Goreng and Bakso from the order, thank you.
+- Kindly take Satay and Pisang Goreng off the order, please.
+- Remove Rendang and Martabak from the order, please.
+- Please exclude Gado-gado and Ayam Goreng from the order.
+- Kindly take Nasi Padang and Soto off the order, thank you.
+- Remove Bakso and Pisang Goreng from the order, please.
+- Please exclude Martabak and Nasi Goreng from the order.
+- Remove Ayam Goreng and Soto from the order, please.
+- Kindly take Pisang Goreng and Nasi Padang off the order, thank you.
+- Please exclude Satay and Rendang from the order.
+- Adjusting the menu. Let's pass on Satay and Rendang for now.
+- Making a change. Kindly skip Pisang Goreng and Nasi Padang, thank you!
+- Let's keep it simple. Pass on Satay and Rendang this time around.
+- Let's lighten the load a tad. Remove Bakso and Pisang Goreng, please.
+- Switching things up a bit, please remove Rendang and Martabak.
+- Let's go with a different vibe. Exclude Gado-gado and Ayam Goreng, thanks!
+
+Text Response:
+- Removed $food-item
+
+
+
+Intent = track_order
+=======================
+Training phrases:
+- Track Order
+- Check Order Status
+- Get Order Updates
+- Get Updates on My Order
+- Trace My Order
+- Discover My Delivery Status
+
+Text Response: 
+- Sure thing! To assist you with tracking, may I have your order ID, please?
+- Of course! To proceed with order tracking, could you share your order ID with me?
+- Certainly! To get started on tracking, could you share your order ID with me?
+- Absolutely! To check the status of your order, I'll need your order ID. Could you provide it for me, please?
+
+
+Intent = track_order - context: ongoing-tracking
+=======================
+Training phrases:
+- how about 32
+- how about 40?
+- here it is - 63321
+- here you go: 123
+- here is my order number 675
+- id is 453
+- here is my order id # 341
+- 7890
+- 123
+- 345
+
+
+
+
+
