@@ -60,7 +60,7 @@ CREATE TABLE `order_tracking` (
 
 LOCK TABLES `order_tracking` WRITE;
 /*!40000 ALTER TABLE `order_tracking` DISABLE KEYS */;
-INSERT INTO `order_tracking` VALUES (40,'delivered'),(41,'in transit');
+INSERT INTO `order_tracking` VALUES (40,'delivered'),(41,'in transit'),(42,'in progress'),(43,'in progress'),(44,'in progress');
 /*!40000 ALTER TABLE `order_tracking` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -74,12 +74,10 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `order_id` int NOT NULL,
   `item_id` int NOT NULL,
-  `quantity` int NOT NULL,
-  `total_price` decimal(10,2) NOT NULL,
-  KEY `orders_ibfk_1_idx` (`item_id`),
-  KEY `orders_ibfk_2_idx` (`order_id`),
-  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`item_id`) REFERENCES `food_items` (`item_id`),
-  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `order_tracking` (`order_id`)
+  `quantity` int DEFAULT NULL,
+  `total_price` decimal(10,2) DEFAULT NULL,
+  KEY `1_idx` (`item_id`),
+  CONSTRAINT `1` FOREIGN KEY (`item_id`) REFERENCES `food_items` (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -89,7 +87,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (40,1,2,12.00),(40,3,1,8.00),(41,4,3,15.00),(41,6,2,18.00),(41,9,4,20.00);
+INSERT INTO `orders` VALUES (40,1,2,12.00),(40,3,1,8.00),(41,4,3,15.00),(41,6,2,18.00),(41,9,4,20.00),(41,9,4,20.00),(42,9,3,15.00),(43,2,2,14.00),(43,1,3,18.00),(43,6,4,36.00),(44,10,3,9.00),(44,6,2,18.00);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -102,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-12 17:06:12
+-- Dump completed on 2024-01-13 16:38:55
