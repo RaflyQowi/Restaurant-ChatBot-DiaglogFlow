@@ -158,6 +158,31 @@ Training phrases:
 - 345
 
 
+Intent = track_order - context: ongoing-tracking
+=======================
+Training phrases:
+What are the operating hours for this store?
+Could you please provide me with the store's hours of operation?
+What time does this store open and close?
+Can you inform me about the store hours for today?
+When does the store open and close on weekdays?
+What are the business hours for this establishment?
+Could you let me know the operating hours for this store on weekends?
+What time does this place start and end its business day?
+Can you share the store's schedule for the day?
+When is this store open during the week?
+
+
+text response:
+Hello and thank you for reaching out! Our store operates seven days a week with the following schedule:
+
+
+Weekdays: 10:00 AM - 8:00 PM
+Weekends: 10:00 AM - 10:00 PM
+
+
+We appreciate your interest and look forward to serving you during our business hours. If you have any further inquiries, feel free to ask. Have a great day!
+
 
 
 
