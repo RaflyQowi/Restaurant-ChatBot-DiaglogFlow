@@ -20,6 +20,7 @@ async def handle_request(request: Request):
     session_id = extract_session_id(output_contexts[0]['name'])
 
     intent_handler_dict = {
+        "new_order" : new_order,
         "track_order - context: ongoing-tracking": track_order,
         "order_add - context: ongoing-order": add_to_order,
         "order_complete - context: ongoing-order": complete_order,
@@ -27,6 +28,13 @@ async def handle_request(request: Request):
     }
 
     return intent_handler_dict[intent](parameters, session_id)
+
+def new_order(parameters: dict, session_id: str):
+    if session_id in inprogress_order:
+        del inprogress_order[session_id]
+    else:
+        pass
+
 
 def remove_from_order(parameters: dict, session_id: str):
     if session_id not in inprogress_order:
